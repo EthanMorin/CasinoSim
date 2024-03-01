@@ -21,7 +21,7 @@ const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, 
 
 function Spin(){
     var slots = RandomSlots()
-    
+
     wheels.value[0] = slots.Slot1.image
     wheels.value[1] = slots.Slot2.image
     wheels.value[2] = slots.Slot3.image
@@ -35,27 +35,23 @@ function RandomSlots(){
 // onMounted(()=>{
 //     Spin()
 // })
-
 </script>
 <template>
-  <div class="wheels">
-    <div class="wheel" id="wheel1">
-        <img v-if="wheels[0] !== null" :src="wheels[0]">
-      {/* Display wheel result */}
-    </div>
-    <div class="wheel" id="wheel2">
-        <img v-if="wheels[1] !== null" :src="wheels[1]">
-      {/* Display wheel result */}
-    </div>
-    <div class="wheel" id="wheel3">
-        <img v-if="wheels[2] !== null" :src="wheels[2]">
-      {/* Display wheel result */}
-    </div>
-  </div>
-  <div class="controls">
-    <p>5 Coins</p>
-    <button @click="Spin()">Spin</button>
-  </div>
+	<div class="wheels">
+		<div class="wheel" id="wheel1">
+			<img v-if="wheels[0] !== null" :src="wheels[0]" />
+		</div>
+		<div class="wheel" id="wheel2">
+			<img v-if="wheels[1] !== null" :src="wheels[1]" />
+		</div>
+		<div class="wheel" id="wheel3">
+			<img v-if="wheels[2] !== null" :src="wheels[2]" />
+		</div>
+	</div>
+	<div class="controls">
+		<p>5 Coins</p>
+		<button @click="Spin()">Spin</button>
+	</div>
 </template>
 <style>
 .wheels {
@@ -81,6 +77,10 @@ function RandomSlots(){
 	font-weight: bold;
 	color: #000000;
 	text-align: center;
+}
+
+.wheel > img {
+  height: 75%;
 }
 
 .controls {
@@ -110,4 +110,6 @@ function RandomSlots(){
 .controls button:hover {
 	background-color: #0056b3;
 }
+
+
 </style>
