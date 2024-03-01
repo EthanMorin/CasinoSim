@@ -1,8 +1,47 @@
 
-class Game {
+class BlackJackGame {
     constructor() {
+        this.deck = new Deck();
+        this.dealer = new Player("Dealer");
+        this.players = [];
+        this.gameState = "new";
+    }
+    /**
+     * Starts the game, deals to all players and the dealer
+     */
+    startGame() {
         
     }
+
+    /**
+     * Adds a player to the game
+     * @param {String} name 
+     */
+    addPlayer(name) {
+        this.players.push(new Player(name));
+    }
+
+
+    playerHit(player) {
+        
+    }
+
+    playerStand(player) {
+        
+    }
+
+    playerDoubleDown(player) {
+            
+    }
+
+    playerSplit(player) {
+            
+    }
+
+    determineWinner() {
+
+    }
+
 
 }
 
@@ -26,6 +65,7 @@ class Deck {
     this.shuffle();
   }
   shuffle() {
+    this.constructor();
     for (let i = this.cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i);
       const temp = this.cards[i];
@@ -43,4 +83,4 @@ class Deck {
 }
 
 
-export { Game, Card, Deck };
+export { BlackJackGame, Card, Deck };
