@@ -31,13 +31,13 @@ function RandomSlots(){
 <template>
   <div class="wheels">
     <div class="wheel">
-      {/* Display wheel result */}
+      
     </div>
     <div class="wheel">
-      {/* Display wheel result */}
+
     </div>
     <div class="wheel">
-      {/* Display wheel result */}
+
     </div>
   </div>
   <div class="controls">
