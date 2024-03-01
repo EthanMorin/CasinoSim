@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { reactive } from 'vue';
+import { onMounted, reactive, shallowReactive } from 'vue';
 
 
 class Options {
@@ -21,23 +21,31 @@ const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, 
 
 function Spin(){
     var slots = RandomSlots()
-    
+    wheels.value[0] = slots.Slot1.image
+    wheels.value[1] = slots.Slot2.image
+    wheels.value[2] = slots.Slot3.image
 }
 
 function RandomSlots(){
     return {Slot1: (wheel[Math.floor(Math.random() * wheel.length)]), Slot2: (wheel[Math.floor(Math.random() * wheel.length)]), Slot3: (wheel[Math.floor(Math.random() * wheel.length)])}
 }
+onMounted(()=>{
+    Spin()
+})
 
 </script>
 <template>
   <div class="wheels">
     <div class="wheel" id="wheel1">
+        <img v-if="wheels[0] !== null" :src="wheels[0]">
       {/* Display wheel result */}
     </div>
     <div class="wheel" id="wheel2">
+        <img v-if="wheels[1] !== null" :src="wheels[1]">
       {/* Display wheel result */}
     </div>
     <div class="wheel" id="wheel3">
+        <img v-if="wheels[2] !== null" :src="wheels[2]">
       {/* Display wheel result */}
     </div>
   </div>
