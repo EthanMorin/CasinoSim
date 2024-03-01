@@ -1,7 +1,6 @@
 <script setup lang="js">
 import { onMounted, reactive, shallowReactive } from 'vue';
 
-
 class Options {
   constructor(name, value, image) {
     this.name = name;
@@ -12,10 +11,10 @@ class Options {
 
 const wheels = ref(["","",""]);
 
-const cherry = new Options("Cherry", 15, "/slots/Wheel - Cherry.png")
-const bells = new Options('Bells', 35, "/slots/Wheel - Bell.png")
-const bars = new Options('Bars', 100, "/slots/Wheel - Bars.png")
-const sevens = new Options('Sevens', 1000, "/slots/Wheel - Seven.png")
+const cherry = new Options("Cherry", 15, "/slots/slot-machine-cherry.png")
+const bells = new Options('Bells', 35, "/slots/slot-machine-bell.png")
+const bars = new Options('Bars', 100, "/slots/slot-machine-bars.png")
+const sevens = new Options('Sevens', 1000, "/slots/slot-machine-seven.png")
 
 const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, sevens]
 
