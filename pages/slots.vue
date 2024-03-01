@@ -22,21 +22,23 @@ const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, 
 function Spin(){
     var slots = RandomSlots()
     
+    //SET IMAGE
     wheels.value[0] = slots.Slot1.image
     wheels.value[1] = slots.Slot2.image
     wheels.value[2] = slots.Slot3.image
-    console.log(wheels.value[0])
+}
+
+function CheckWin(){
+
 }
 
 function RandomSlots(){
+    //RANDOMIZE THE SLOTS ON THE WHEELS
     return {Slot1: (wheel[Math.floor(Math.random() * wheel.length)]), Slot2: (wheel[Math.floor(Math.random() * wheel.length)]), Slot3: (wheel[Math.floor(Math.random() * wheel.length)])}
 }
 
-// onMounted(()=>{
-//     Spin()
-// })
-
 </script>
+
 <template>
   <div class="wheels">
     <div class="wheel" id="wheel1">
