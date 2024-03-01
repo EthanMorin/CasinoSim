@@ -10,7 +10,7 @@ class Options {
   }
 }
 
-const wheels = reactive([]);
+const wheels = ref(["","",""]);
 
 const cherry = new Options("Cherry", 15, "/slots/Wheel - Cherry.png")
 const bells = new Options('Bells', 35, "/slots/Wheel - Bell.png")
@@ -21,17 +21,20 @@ const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, 
 
 function Spin(){
     var slots = RandomSlots()
+    
     wheels.value[0] = slots.Slot1.image
     wheels.value[1] = slots.Slot2.image
     wheels.value[2] = slots.Slot3.image
+    console.log(wheels.value[0])
 }
 
 function RandomSlots(){
     return {Slot1: (wheel[Math.floor(Math.random() * wheel.length)]), Slot2: (wheel[Math.floor(Math.random() * wheel.length)]), Slot3: (wheel[Math.floor(Math.random() * wheel.length)])}
 }
-onMounted(()=>{
-    Spin()
-})
+
+// onMounted(()=>{
+//     Spin()
+// })
 
 </script>
 <template>
@@ -51,7 +54,7 @@ onMounted(()=>{
   </div>
   <div class="controls">
     <p>5 Coins</p>
-    <button>Spin</button>
+    <button @click="Spin()">Spin</button>
   </div>
 </template>
 <style>
