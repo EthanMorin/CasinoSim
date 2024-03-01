@@ -1,10 +1,10 @@
 <script setup lang="js">
 
 class Options {
- constructor(name, value) {
+  constructor(name, value) {
     this.name = name;
     this.value = value;
- }
+  }
 }
 
 const cherry = new Options("Cherry", 15)
@@ -27,6 +27,7 @@ function RandomSlots(){
     return {Slot1: slot1, Slot2: slot2, Slot3: slot3}
 }
 
+</script>
 <template>
   <div class="wheels">
     <div class="wheel">
