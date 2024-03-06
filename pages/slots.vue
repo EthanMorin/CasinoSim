@@ -11,7 +11,7 @@ class Options {
   }
 }
 
-var bet = 5
+var bet = ref(5)
 var payout = ref()
 
 const wheels = ref(["","",""]);
@@ -24,6 +24,7 @@ const sevens = new Options('Sevens', 1000, "/slots/slot-machine-seven.png")
 const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, sevens]
 
 function Spin(){
+	//decrementBalance(bet)
     var slots = RandomSlots()
     
     //SET IMAGE
@@ -52,6 +53,17 @@ function CheckWin(slots){
 function RandomSlots(){
     //RANDOMIZE THE SLOTS ON THE WHEELS
     return {Slot1: (wheel[Math.floor(Math.random() * wheel.length)]), Slot2: (wheel[Math.floor(Math.random() * wheel.length)]), Slot3: (wheel[Math.floor(Math.random() * wheel.length)])}
+}
+
+function IncrementBet(){
+	bet += 5
+}
+
+function DecrementBet(){
+	//CANT BE OR GO UNDER 0
+	if(bet-5 != 0){
+		bet -= 5
+	}
 }
 
 </script>
