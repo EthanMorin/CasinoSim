@@ -73,12 +73,12 @@ const rowOne = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
   flex-direction: row;
 }
 .zero-space {
-  height: 28.75%;
+  height: 28.5%;
   width: 50px;
   border: solid 2px white;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 .space {
   border: solid 2px white;
