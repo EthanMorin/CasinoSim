@@ -37,6 +37,7 @@ export default {
       dealerCards: [],
       playerCards: [],
       currentPlayer: null,
+      currentPlayerIndex: 0
     };
   },
   created() {
@@ -46,15 +47,15 @@ export default {
   },
   methods: {
     hit() {
-      this.game.playerHit(this.currentPlayer);
+      this.game.playerHit();
       this.updateHands();
     },
     stand() {
-      this.game.playerStand(this.currentPlayer);
+      this.game.playerStand();
       this.updateHands();
     },
     double() {
-      this.game.playerDoubleDown(this.currentPlayer);
+      this.game.playerDoubleDown();
       this.updateHands();
     },
     deal() {
@@ -62,10 +63,14 @@ export default {
       this.updateHands();
     },
     split() {
-      this.game.splitHand(this.currentPlayer);
+      this.game.playerSplit();
       this.updateHands();
     },
     updateHands() {
+      if (this.game.currentPlayerIndex !== this.currentPlayerIndex) {
+        this.currentPlayerIndex = this.game.currentPlayerIndex;
+        this.currentPlayer = this.game.players[this.currentPlayerIndex];
+      }
       this.dealerCards = this.game.dealer.hand;
       this.playerCards = this.currentPlayer.hand;
     },
