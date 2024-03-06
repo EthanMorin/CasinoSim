@@ -1,11 +1,6 @@
+
 <template>
-  <h1>black jack</h1>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-</template>
-=======
-=======
->>>>>>> paden
+<h1>black jack</h1>
   <board></board>
 </template>
 
@@ -15,13 +10,9 @@ import Board from "../composables/board.vue";
 
 <style>
 body{
-<<<<<<< HEAD
   background-image: url('../public/generic-felt-mat.png')
 }
 </style>
->>>>>>> Stashed changes
-=======
   background-image: url('../public/Generic Felt Mat.jpeg')
 }
 </style>
->>>>>>> paden
