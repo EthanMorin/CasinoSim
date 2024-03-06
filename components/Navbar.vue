@@ -4,7 +4,7 @@ const { playerBalance } = useAccount();
 const bal = ref(playerBalance);
 </script>
 <template>
-	<Nav>
+	<nav>
 		<ul>
 			<li><NuxtLink to="/">Home</NuxtLink></li>
 			<li><NuxtLink to="/slots">Slots</NuxtLink></li>
@@ -13,7 +13,7 @@ const bal = ref(playerBalance);
 			<li><NuxtLink to="/bank">Bank</NuxtLink></li>
 		</ul>
 		<p v-text="'Balance: ' + bal"></p>
-	</Nav>
+	</nav>
 </template>
 <style>
 nav ul {
