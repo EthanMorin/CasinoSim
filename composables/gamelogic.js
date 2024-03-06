@@ -137,9 +137,9 @@ class Player {
         this.score = 0;
         let aces = 0;
         this.hand.forEach(card => {
-            if (['J', 'Q', 'K'].includes(card.value)) {
+            if (['j', 'q', 'k'].includes(card.value)) {
                 this.score += 10;
-            } else if (card.value === 'A') {
+            } else if (card.value === 'a') {
                 aces++;
                 this.score += 11;
             } else {
@@ -168,7 +168,7 @@ class Deck {
     
     initialize() {
         const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
-        const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'j', 'q', 'k', 'a'];
         for (let suit of suits) {
             for (let value of values) {
                 this.cards.push(new Card(suit, value));
