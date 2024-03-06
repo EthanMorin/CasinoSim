@@ -24,13 +24,13 @@ const sevens = new Options('Sevens', 1000, "/slots/slot-machine-seven.png")
 const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, sevens]
 
 function Spin(){
-	//decrementBalance(bet)
-	var slots = RandomSlots()
-
-	//SET IMAGE
-	wheels.value[0] = slots.Slot1.image
-	wheels.value[1] = slots.Slot2.image
-	wheels.value[2] = slots.Slot3.image
+	decrementBalance(bet.value)
+    var slots = RandomSlots()
+    
+    //SET IMAGE
+    wheels.value[0] = slots.Slot1.image
+    wheels.value[1] = slots.Slot2.image
+    wheels.value[2] = slots.Slot3.image
 
 	CheckWin(slots)
 }

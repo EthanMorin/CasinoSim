@@ -1,5 +1,5 @@
 export function useAccount() {
-  const playerBalance = useState('playerBalance', () => 0);
+  const playerBalance = useState('playerBalance', () => 1000);
 
   function incrementBalance(amount) {
     playerBalance.value += amount;
