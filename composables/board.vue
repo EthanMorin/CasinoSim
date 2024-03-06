@@ -22,6 +22,7 @@
       <button @click="deal">Deal</button>
     </div>
   </div>
+  <img src="../public/BlackJackTable.png"/>
 </template>
 
 <script>
@@ -81,10 +82,6 @@ button {
 <script setup>
 
 </script>
-
-<template>
-  <img src="../public/BlackJackTable.png"/>
-</template>
 
 <style scoped>
 
