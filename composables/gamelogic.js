@@ -88,10 +88,10 @@ class BlackJackGame {
         while(this.dealer.score < 17) {
             this.dealer.addCard(this.deck.drawCard());
         }
+        this.determineWinner();
     }
 
     determineWinner() {
-        if(this.gameState !== "inProgress") { return; }
         this.players.forEach(player => {
             if(player.score > 21) {
                 // player busts
