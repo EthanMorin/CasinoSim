@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <div class="blackjack-game">
     <!-- Dealer's hand -->
@@ -79,7 +78,6 @@ button {
   margin: 0 10px;
 }
 </style>
-=======
 <script setup>
 
 </script>
@@ -91,4 +89,3 @@ button {
 <style scoped>
 
 </style>
->>>>>>> paden
