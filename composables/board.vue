@@ -3,7 +3,7 @@
     <!-- Dealer's hand -->
     <div class="dealer-hand">
       <div class="card" v-for="(card, index) in dealerCards" :key="index">
-        <!-- Render dealer's cards here -->
+        <img :src="'/card-' + card.suit + '-' + card.value + '.png'"/>
       </div>
     </div>
 
