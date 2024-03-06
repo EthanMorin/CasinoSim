@@ -9,6 +9,9 @@ class Options {
   }
 }
 
+var bet = 5
+var payout = ref()
+
 const wheels = ref(["","",""]);
 
 const cherry = new Options("Cherry", 15, "/slots/slot-machine-cherry.png")
@@ -25,10 +28,21 @@ function Spin(){
     wheels.value[0] = slots.Slot1.image
     wheels.value[1] = slots.Slot2.image
     wheels.value[2] = slots.Slot3.image
+
+	CheckWin(slots)
 }
 
-function CheckWin(){
+function CheckWin(slots){
+	if(slots.Slot1.name === slots.Slot2.name && slots.Slot1.name === slots.Slot3.name){
+		payout = bet * slots.Slot1.value
+		console.log("3 in a row: you win $" + payout)
 
+		//TODO ADD PAYOUT TO USER MONEY
+		//TRIGGER WIN PROMPT/TRY AGAIN
+	} else{
+		console.log("L bozo")
+		//TRIGGER LOSE PROMPT/TRY AGAIN
+	}
 }
 
 function RandomSlots(){
