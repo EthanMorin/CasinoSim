@@ -1,13 +1,14 @@
 <script setup></script>
 
 <template>
-  <div class="test panel"></div>
+  <div class="test panel">
+    <h1>Casino Simulator</h1>
+  </div>
 </template>
 
 <style>
 .test {
-  margin-top: 20vh;
-  width: 60vw;
-  height: 100vh;
+  width: 80vw;
+  height: 80vh;
 }
 </style>
