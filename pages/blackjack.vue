@@ -1,3 +1,18 @@
 <template>
   <h1>black jack</h1>
+<<<<<<< Updated upstream
 </template>
+=======
+  <board></board>
+</template>
+
+<script setup>
+import Board from "../composables/board.vue";
+</script>
+
+<style>
+body{
+  background-image: url('../public/generic-felt-mat.png')
+}
+</style>
+>>>>>>> Stashed changes
