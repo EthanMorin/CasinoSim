@@ -14,6 +14,7 @@ class BlackJackGame {
         if (this.players.length === 0) {
             return;
         }
+        this.deck = new Deck();
         this.deck.shuffle();
         this.gameState = "inProgress";
         this.players.forEach(player => {
