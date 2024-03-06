@@ -25,19 +25,19 @@ const wheel = [cherry, cherry, cherry, cherry, bells, bells, bells, bars, bars, 
 
 function Spin(){
 	//decrementBalance(bet)
-    var slots = RandomSlots()
-    
-    //SET IMAGE
-    wheels.value[0] = slots.Slot1.image
-    wheels.value[1] = slots.Slot2.image
-    wheels.value[2] = slots.Slot3.image
+	var slots = RandomSlots()
+
+	//SET IMAGE
+	wheels.value[0] = slots.Slot1.image
+	wheels.value[1] = slots.Slot2.image
+	wheels.value[2] = slots.Slot3.image
 
 	CheckWin(slots)
 }
 
 function CheckWin(slots){
 	if(slots.Slot1.name === slots.Slot2.name && slots.Slot1.name === slots.Slot3.name){
-		payout = bet * slots.Slot1.value
+		payout = bet.value * slots.Slot1.value
 		console.log("3 in a row: you win $" + payout)
 
 		//TODO ADD PAYOUT TO USER MONEY
@@ -56,16 +56,15 @@ function RandomSlots(){
 }
 
 function IncrementBet(){
-	bet += 5
+	bet.value += 5
 }
 
 function DecrementBet(){
 	//CANT BE OR GO UNDER 0
-	if(bet-5 != 0){
-		bet -= 5
+	if(bet.value-5 != 0){
+		bet.value -= 5
 	}
 }
-
 </script>
 
 <template>
@@ -82,9 +81,9 @@ function DecrementBet(){
 	</div>
 	<div class="controls">
 		<span>
-			<button id="IncrimentBet" @click="IncrementBet()">+$5</button>
+			<button @click="IncrementBet()">+ $5</button>
 			<h2 v-text="bet"></h2>
-			<button id="DecrementBet" @click="DecrementBet()">-$5</button>
+			<button @click="DecrementBet()">- $5</button>
 		</span>
 		<button @click="Spin()">Spin!</button>
 	</div>
@@ -116,7 +115,7 @@ function DecrementBet(){
 }
 
 .wheel > img {
-  height: 75%;
+	height: 75%;
 }
 
 .controls {
@@ -152,6 +151,4 @@ function DecrementBet(){
 .controls button:hover {
 	background-color: #0056b3;
 }
-
-
 </style>
