@@ -79,12 +79,10 @@ function updateBalance() {
   // If the user lost (gameWon == false), subtract the bet from the balance
 }
 
-gameLoop()
+// gameLoop()
 
 </script>
 <template>
   <h1>roulette</h1>
-  <button @click="incrementBalance(20)">+20</button>
-  <button @click="decrementBalance(10)">-10</button>
-  <p>{{ playerBalance }}</p>
+  
 </template>

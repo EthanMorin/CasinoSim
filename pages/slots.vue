@@ -37,7 +37,7 @@ function Spin(){
 
 function CheckWin(slots){
 	if(slots.Slot1.name === slots.Slot2.name && slots.Slot1.name === slots.Slot3.name){
-		payout = bet * slots.Slot1.value
+		payout = bet.value * slots.Slot1.value
 		console.log("3 in a row: you win $" + payout)
 
 		//TODO ADD PAYOUT TO USER MONEY
@@ -56,16 +56,15 @@ function RandomSlots(){
 }
 
 function IncrementBet(){
-	bet += 5
+	bet.value += 5
 }
 
 function DecrementBet(){
 	//CANT BE OR GO UNDER 0
-	if(bet-5 != 0){
-		bet -= 5
+	if(bet.value-5 != 0){
+		bet.value -= 5
 	}
 }
-
 </script>
 
 <template>
@@ -81,8 +80,12 @@ function DecrementBet(){
 		</div>
 	</div>
 	<div class="controls">
-		<p>5 Coins</p>
-		<button @click="Spin()">Spin</button>
+		<span>
+			<button @click="IncrementBet()"> + $5 </button>
+			<h2 v-text="bet"></h2>
+			<button @click="DecrementBet()"> - $5 </button>
+		</span>
+		<button @click="Spin()">Spin!</button>
 	</div>
 </template>
 <style>
@@ -112,11 +115,12 @@ function DecrementBet(){
 }
 
 .wheel > img {
-  height: 75%;
+	height: 75%;
 }
 
 .controls {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
@@ -127,6 +131,11 @@ function DecrementBet(){
 
 .controls p {
 	margin: 0;
+}
+
+.controls span {
+	display: flex;
+	flex-direction: row;
 }
 
 .controls button {
@@ -142,6 +151,4 @@ function DecrementBet(){
 .controls button:hover {
 	background-color: #0056b3;
 }
-
-
 </style>
