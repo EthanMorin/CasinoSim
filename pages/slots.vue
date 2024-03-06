@@ -81,8 +81,12 @@ function DecrementBet(){
 		</div>
 	</div>
 	<div class="controls">
-		<p>5 Coins</p>
-		<button @click="Spin()">Spin</button>
+		<span>
+			<button id="IncrimentBet" @click="IncrementBet()">+$5</button>
+			<h2 v-text="bet"></h2>
+			<button id="DecrementBet" @click="DecrementBet()">-$5</button>
+		</span>
+		<button @click="Spin()">Spin!</button>
 	</div>
 </template>
 <style>
@@ -117,6 +121,7 @@ function DecrementBet(){
 
 .controls {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
@@ -127,6 +132,11 @@ function DecrementBet(){
 
 .controls p {
 	margin: 0;
+}
+
+.controls span {
+	display: flex;
+	flex-direction: row;
 }
 
 .controls button {
