@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { onMounted, reactive, shallowReactive } from 'vue';
+
 
 const { playerBalance, incrementBalance, decrementBalance } = useAccount()
 
