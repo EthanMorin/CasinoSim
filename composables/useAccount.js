@@ -1,5 +1,6 @@
 export function useAccount() {
   const playerBalance = useState('playerBalance', () => 1000);
+  const loans = useState('loans', () => -10000);
 
   function incrementBalance(amount) {
     playerBalance.value += amount;
@@ -13,5 +14,6 @@ export function useAccount() {
     playerBalance,
     incrementBalance,
     decrementBalance,
+    loans,
   };
 }
