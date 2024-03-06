@@ -19,6 +19,7 @@
       <button @click="hit">Hit</button>
       <button @click="stand">Stand</button>
       <button @click="double">Double</button>
+      <button @click="split">Split</button>
       <button @click="deal">Deal</button>
     </div>
   </div>
@@ -26,12 +27,22 @@
 </template>
 
 <script>
+
+import { BlackJackGame } from './gamelogic';
 export default {
+  
   data() {
     return {
+      game: new BlackJackGame(),
       dealerCards: [],
-      playerCards: []
+      playerCards: [],
+      currentPlayer: null,
     };
+  },
+  created() {
+    this.game.addPlayer("Player 1");
+    this.currentPlayer = this.game.players[0];
+    this.deal();
   },
   methods: {
     hit() {
@@ -44,7 +55,10 @@ export default {
       // Implement double logic
     },
     deal() {
-      // Implement deal logic
+      //
+    },
+    split() {
+      
     }
   }
 };

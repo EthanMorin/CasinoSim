@@ -36,8 +36,9 @@ class BlackJackGame {
     }
 
     
-    playerHit(player) {
+    playerHit() {
         if(this.gameState !== "inProgress") { return; }
+        const player = this.players[this.currentPlayerIndex];
         player.addCard(this.deck.drawCard());
         if(player.score > 21) {
             // player busts
@@ -46,13 +47,15 @@ class BlackJackGame {
     }
 
 
-    playerStand(player) {
+    playerStand() {
         if(this.gameState !== "inProgress") { return; }
+        const player = this.players[this.currentPlayerIndex];
         this.moveToNextPlayer();
     }
 
-    playerDoubleDown(player) {
+    playerDoubleDown() {
         if(this.gameState !== "inProgress") { return; }
+        const player = this.players[this.currentPlayerIndex];
         player.bet *= 2;
         this.playerHit(player);
         if(player.score <= 21) {
@@ -60,8 +63,9 @@ class BlackJackGame {
         }
     }
 
-    playerSplit(player) {
+    playerSplit() {
         if(this.gameState !== "inProgress") { return; }
+        const player = this.players[this.currentPlayerIndex];
         const splitCard = player.hand.pop();
         const splitPlayer = new Player(`${player.name} - Split`);
         player.addCard(this.deck.drawCard());
