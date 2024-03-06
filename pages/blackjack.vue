@@ -1,4 +1,3 @@
-
 <template>
 <h1>black jack</h1>
   <board></board>
@@ -9,10 +8,7 @@ import Board from "../composables/board.vue";
 </script>
 
 <style>
-body{
+body {
   background-image: url('../public/generic-felt-mat.png')
-}
-</style>
-  background-image: url('../public/Generic Felt Mat.jpeg')
 }
 </style>
