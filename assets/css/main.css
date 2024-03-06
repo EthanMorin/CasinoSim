@@ -2,7 +2,7 @@ body {
   margin: 0;
   background: radial-gradient(at top left, #2a3447, #0d111a);
   color: #ccd0d9;
-  font-family: monst;
+  font-family: "montserret";
   height: 100vh;
   display: flex;
   align-items: center;
