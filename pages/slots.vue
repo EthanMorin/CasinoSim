@@ -81,9 +81,9 @@ function DecrementBet(){
 	</div>
 	<div class="controls">
 		<span>
-			<button @click="IncrementBet()">+ $5</button>
+			<button @click="IncrementBet()"> + $5 </button>
 			<h2 v-text="bet"></h2>
-			<button @click="DecrementBet()">- $5</button>
+			<button @click="DecrementBet()"> - $5 </button>
 		</span>
 		<button @click="Spin()">Spin!</button>
 	</div>
