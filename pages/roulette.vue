@@ -2,7 +2,13 @@
 let gameOver = false
 let gameWon = false
 const betColor = ref('black')
-const randomNumber = ref(0);
+const playerBalance = ref(100)
+const randomNumber = ref(0)
+const playerTokenPlacement = ref(0)
+const playerBetAmount = ref(0)
+const allNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
+
 
 
 function gameLoop() {
@@ -20,27 +26,41 @@ function gameLoop() {
 }
 
 function getBet() {
-  // Get the user's bet from the input field
-  // If the bet is greater than the balance, set the bet to the balance
-  // If the bet is less than 0, set the bet to 0
-  // If the bet is greater than 0 and less than or equal to the balance, continue
-  // If the bet is 0, set gameOver to true
+  
+  //   Single number bet pays 35 to 1. Also called “straight up.”
+  //   Double number bet pays 17 to 1. Also called a “split.” 
+  //   Three number bet pays 11 to 1. Also called a “street.”
+  //   Four number bet pays 8 to 1. Also called a “corner bet.”
+  //   Five number bet pays 6 to 1. Only one specific bet which includes the following numbers: 0-00-1-2-3.
+  //   Six number bets pays 5 to 1. Example: 7, 8, 9, 10, 11, 12. Also called a “line.”
+  //   Twelve numbers or dozens (first, second, third dozen) pays 2 to 1.
+  //   Column bet (12 numbers in a row) pays 2 to 1. 
+  //   18 numbers (1-18) pays even money. 
+  //   18 numbers (19-36) pays even money. 
+  //   Red or black pays even money. 
+  //   Odd or even bets pay even money.
+
+  if(playerBetAmount.value > playerBalance.value) {
+    console.log('You do not have enough money to place that bet')
+  }
+
+  if(playerBetAmount.value < 0) {
+    console.log('You cannot place a negative bet')
+  }
+
+
+
 }
 
 function spinWheel() {
-  // Generate a random number between 0 and 36
-  // If the number is 0, set the color to green
-  // If the number is even, set the color to black
-  // If the number is odd, set the color to red
-
   randomNumber.value = Math.floor(Math.random() * 37) // Generates a random number between 0 and 36
 
-  if (randomNumber === 0) {
-    betColor.value = 'green'
-  } else if (randomNumber % 2 === 0) {
-    betColor.value = 'black'
-  } else {
+  if (redNumbers.includes(randomNumber.value)) {
     betColor.value = 'red'
+  } else if (randomNumber.value === 0) {
+    betColor.value = 'green'
+  } else {
+    betColor.value = 'black'
   }
 }
 
@@ -63,11 +83,7 @@ If the bet happens on 3-34 (increments of 3) and the number is that number, the 
 function checkWin() {
   // If the user won round to dealer, set gameWon to true
   // If the user lost round to dealer, set gameWon to false
-  if (betColor === 'green') {
-    gameWon = true
-  } else if (betColor === 'black' && betColor === 'black') {
-    gameWon = true
-  } else if (betColor === 'red' && betColor === 'red') {
+  if (playerTokenPlacement.value === randomNumber.value) {
     gameWon = true
   } else {
     gameWon = false
@@ -77,9 +93,13 @@ function checkWin() {
 function updateBalance() {
   // If the user won (gameWon == true), add the winnings to the balance
   // If the user lost (gameWon == false), subtract the bet from the balance
-}
 
-gameLoop()
+  if (gameWon) {
+    playerBalance.value += playerBetAmount.value
+  } else {
+    playerBalance.value -= playerBetAmount.value
+  }
+}
 
 </script>
 <template>
