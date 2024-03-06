@@ -11,7 +11,7 @@ class Options {
   }
 }
 
-var bet = 5
+var bet = ref(5)
 var payout = ref()
 
 const wheels = ref(["","",""]);
@@ -69,8 +69,12 @@ function RandomSlots(){
 		</div>
 	</div>
 	<div class="controls">
-		<p>5 Coins</p>
-		<button @click="Spin()">Spin</button>
+		<span>
+			<button id="IncrimentBet" @click="IncrementBet()">+$5</button>
+			<h2 v-text="bet"></h2>
+			<button id="DecrementBet" @click="DecrementBet()">-$5</button>
+		</span>
+		<button @click="Spin()">Spin!</button>
 	</div>
 </template>
 <style>
@@ -105,6 +109,7 @@ function RandomSlots(){
 
 .controls {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
@@ -115,6 +120,11 @@ function RandomSlots(){
 
 .controls p {
 	margin: 0;
+}
+
+.controls span {
+	display: flex;
+	flex-direction: row;
 }
 
 .controls button {
