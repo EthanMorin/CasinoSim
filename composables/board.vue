@@ -10,7 +10,7 @@
     <!-- Player's hand -->
     <div class="player-hand">
       <div class="card" v-for="(card, index) in playerCards" :key="index">
-        <img :src="'../public/card-' + card.suit + '-' + card.value + '.png'"/>
+        <img :src="'/card-' + card.suit + '-' + card.value + '.png'"/>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
       <button @click="deal">Deal</button>
     </div>
   </div>
-  <img src="../public/BlackJackTable.png"/>
+  <img src="/blackjack-table.png"/>
 </template>
 
 <script>
@@ -46,20 +46,30 @@ export default {
   },
   methods: {
     hit() {
-      // Implement hit logic
+      this.game.playerHit(this.currentPlayer);
+      this.updateHands();
     },
     stand() {
-      // Implement stand logic
+      this.game.playerStand(this.currentPlayer);
+      this.updateHands();
     },
     double() {
-      // Implement double logic
+      this.game.playerDoubleDown(this.currentPlayer);
+      this.updateHands();
     },
     deal() {
-      //
+      this.game.startGame();
+      this.updateHands();
     },
     split() {
-      
-    }
+      this.game.splitHand(this.currentPlayer);
+      this.updateHands();
+    },
+    updateHands() {
+      this.dealerCards = this.game.dealer.hand;
+      this.playerCards = this.currentPlayer.hand;
+    },
+
   }
 };
 </script>
