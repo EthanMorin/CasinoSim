@@ -1,6 +1,8 @@
 <script setup lang="js">
 import { onMounted, reactive, shallowReactive } from 'vue';
 
+const { playerBalance, incrementBalance, decrementBalance } = useAccount()
+
 class Options {
   constructor(name, value, image) {
     this.name = name;
@@ -38,6 +40,8 @@ function CheckWin(slots){
 		console.log("3 in a row: you win $" + payout)
 
 		//TODO ADD PAYOUT TO USER MONEY
+		incrementBalance(payout)
+		console.log(playerBalance)
 		//TRIGGER WIN PROMPT/TRY AGAIN
 	} else{
 		console.log("L bozo")
