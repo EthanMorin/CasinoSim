@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  background: radial-gradient(at top left, #2a3447, #0d111a);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  background-color: #131b28;
+  box-shadow: 1px 1px 20px 5px #10141d;
+  border-radius: 2px;
+}
