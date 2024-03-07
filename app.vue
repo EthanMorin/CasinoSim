@@ -16,12 +16,13 @@ const router = useRouter();
             <BootstrapIcon name="cash-coin" style="margin-right: 10px" />
             <p>${{ playerBalance }}</p>
           </div>
-          <div class="link" @click="router.push({ path: 'bank' })">
-            <BootstrapIcon
-              name="bank2"
-              style="margin-left: 30px; margin-right: 10px"
-            />
-            <NuxtLink to="bank">Bank</NuxtLink>
+          <div
+            class="link"
+            @click="router.push({ path: 'bank' })"
+            style="margin-left: 30px"
+          >
+            <BootstrapIcon name="bank2" style="margin-right: 10px" />
+            <p>Bank</p>
           </div>
         </div>
       </div>
@@ -55,7 +56,7 @@ const router = useRouter();
   border-bottom: solid 2px #19202d;
   display: flex;
   align-items: center;
-  margin: 0px 20px;
+  padding: 0px 20px;
   justify-content: space-between;
 }
 .content {
@@ -74,7 +75,6 @@ const router = useRouter();
   }
 }
 .link {
-  color: white;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
 }
 .link:hover {

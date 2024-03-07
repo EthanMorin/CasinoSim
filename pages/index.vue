@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <div class="game-display">
-      <div class="game-panel">
-        <p>yeah buddy</p>
-      </div>
+  <div class="game-display">
+    <div class="game-panel">
+      <p>yeah buddy</p>
+    </div>
+    <div class="game-panel">
+      <p>yeah buddy</p>
+    </div>
+    <div class="game-panel">
+      <p>yeah buddy</p>
     </div>
   </div>
 </template>
@@ -17,5 +21,7 @@
 .game-panel {
   margin: 5px;
   border: solid 2px white;
+  width: 28%;
+  height: 80%;
 }
 </style>
