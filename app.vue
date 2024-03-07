@@ -11,6 +11,9 @@ const router = useRouter();
           <img src="./public/dice-icon.png" />
           <NuxtLink to="/">Casino Simulator</NuxtLink>
         </div>
+        <div>
+          <h2>{{ router.currentRoute.value.path.split('/')[1] }}</h2>
+        </div>
         <div class="links">
           <div class="player-balance">
             <BootstrapIcon name="cash-coin" style="margin-right: 10px" />
