@@ -53,7 +53,7 @@ const router = useRouter();
 }
 .navbar {
   height: 64px;
-  border-bottom: solid 2px #19202d;
+  border-bottom: solid 1px #19202d;
   display: flex;
   align-items: center;
   padding: 0px 20px;

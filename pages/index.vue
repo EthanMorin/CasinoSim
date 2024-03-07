@@ -1,6 +1,6 @@
 <template>
   <div class="game-display">
-    <div class="game-panel">
+    <!-- <div class="game-panel">
       <p>yeah buddy</p>
     </div>
     <div class="game-panel">
@@ -8,7 +8,7 @@
     </div>
     <div class="game-panel">
       <p>yeah buddy</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
