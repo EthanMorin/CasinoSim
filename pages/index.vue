@@ -1,14 +1,21 @@
-<script setup></script>
-
 <template>
-  <div class="test panel">
-    <h1>Casino Simulator</h1>
+  <div>
+    <div class="game-display">
+      <div class="game-panel">
+        <p>yeah buddy</p>
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
-.test {
-  width: 80vw;
-  height: 80vh;
+<style scoped>
+.game-display {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.game-panel {
+  margin: 5px;
+  border: solid 2px white;
 }
 </style>
