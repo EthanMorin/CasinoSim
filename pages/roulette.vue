@@ -6,7 +6,9 @@ const bet = reactive({
 const rowThree = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
 const rowTwo = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
 const rowOne = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
-const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+const redNumbers = [
+  1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36,
+];
 
 function placeChip(num) {
   const chip = {
@@ -14,7 +16,11 @@ function placeChip(num) {
     amount: 5,
   };
   bet.chips.push(chip);
-  console.log(bet);
+  spinWheel();
+}
+
+function spinWheel() {
+  bet.chips.forEach((value) => console.log(value.number, value.amount));
 }
 </script>
 
