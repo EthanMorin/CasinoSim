@@ -20,7 +20,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure the nav spans the full width of the viewport */
+    width: 100%;
     background-color: #333;
 }
 
@@ -29,12 +29,12 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    display: flex; /* Keeps the list items aligned horizontally */
-    width: 100%; /* Ensures the ul takes up the full width of the nav */
+    display: flex;
+    width: 100%;
 }
 
 nav ul li {
-    flex: 1; /* This will ensure each li takes up an equal amount of space */
+    flex: 1;
 }
 
 nav ul li a {
