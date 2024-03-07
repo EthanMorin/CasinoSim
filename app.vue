@@ -13,5 +13,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  nav {
+    margin-bottom: 10px;
   } 
 </style>
