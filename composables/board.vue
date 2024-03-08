@@ -23,7 +23,6 @@
       <button @click="deal">Deal</button>
     </div>
   </div>
-  <img src="/blackjack-table.png"/>
 </template>
 
 <script>
