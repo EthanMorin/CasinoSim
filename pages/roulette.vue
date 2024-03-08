@@ -1,6 +1,10 @@
 <script setup>
 const bet = reactive({
   chips: [],
+  mods: [
+    { name: 'black', modifier: 1 },
+    { name: 'red', modifier: 1 },
+  ],
 });
 
 const rowThree = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
@@ -10,17 +14,38 @@ const redNumbers = [
   1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36,
 ];
 
-function placeChip(num) {
+function placeChip(num, modNames = []) {
   const chip = {
     number: num,
     amount: 5,
+    mod: modNames,
   };
   bet.chips.push(chip);
   spinWheel();
 }
 
 function spinWheel() {
-  bet.chips.forEach((value) => console.log(value.number, value.amount));
+  bet.chips.forEach((chip) => console.log(chip.number, chip.amount));
+}
+
+function printBet() {
+  bet.chips.forEach((chip) => {
+    console.log(`number: ${chip.number}\namount: ${chip.amount}`);
+  });
+}
+
+function calculateWinnings(winningNumber) {
+  bet.chips.forEach((chip) => {
+    let payoutMultiplier = 1;
+    chip.mods.forEach((modName) => {
+      let mod = bet.mods.find((mod) => mod.name === modName);
+      if (mod) {
+        // Check if the mod applies to the winning number
+        // and adjust the payoutMultiplier accordingly
+      }
+    });
+    // Calculate the final payout based on the multiplier and chip amount
+  });
 }
 </script>
 
@@ -28,25 +53,26 @@ function spinWheel() {
   <div>
     <h1>roulette</h1>
     <div class="board-wrapper">
+      <button @click="printBet()">click</button>
       <div class="zero-question-mark">
         <div class="zero-space">00</div>
         <div class="zero-space">0</div>
       </div>
       <div class="board">
         <div class="row">
-          <div v-for="num in rowThree" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowThree" class="space" :number="num">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="row">
-          <div v-for="num in rowTwo" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowTwo" class="space" @click="placeChip(num)">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="row">
-          <div v-for="num in rowOne" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowOne" class="space" @click="placeChip(num)">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="twelve-row">
           <div class="twelve-space">1st 12</div>
