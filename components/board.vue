@@ -3,7 +3,7 @@
     <!-- Dealer's hand -->
     <div class="dealer-hand">
     <div class="card" v-for="(card, index) in dealerCards" :key="`dealer-${index}`">
-      <img v-if="index === 0 && !showDealerCard" src="/card-back.png" />
+      <img v-if="index === 0 && !dealerShowHand" src="/card-back.png" />
       <img v-else :src="'/card-' + card.suit + '-' + card.value + '.png'"/>
     </div>
   </div>
@@ -53,7 +53,6 @@ export default {
     stand() {
       this.game.playerStand();
       this.updateHands();
-      this.showDealerCard = true;
     },
     double() {
       this.game.playerDoubleDown();
@@ -62,7 +61,6 @@ export default {
     deal() {
       this.game.startGame();
       this.updateHands();
-      this.showDealerCard = false;
     },
     split() {
       this.game.playerSplit();
@@ -75,6 +73,7 @@ export default {
       }
       this.dealerCards = this.game.dealer.hand;
       this.playerCards = this.currentPlayer.hand;
+      this.dealerShowHand = this.game.dealerShowHand;
     },
 
   }
