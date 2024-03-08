@@ -1,10 +1,10 @@
 <script setup>
 const bet = reactive({
   chips: [],
-  mods:[
-  { name: 'black', modifier: 1 },
-  { name: 'red', modifier: 1 }
-],
+  mods: [
+    { name: 'black', modifier: 1 },
+    { name: 'red', modifier: 1 },
+  ],
 });
 
 const rowThree = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
@@ -38,7 +38,7 @@ function calculateWinnings(winningNumber) {
   bet.chips.forEach((chip) => {
     let payoutMultiplier = 1;
     chip.mods.forEach((modName) => {
-      let mod = bet.mods.find(mod => mod.name === modName);
+      let mod = bet.mods.find((mod) => mod.name === modName);
       if (mod) {
         // Check if the mod applies to the winning number
         // and adjust the payoutMultiplier accordingly
@@ -60,19 +60,19 @@ function calculateWinnings(winningNumber) {
       </div>
       <div class="board">
         <div class="row">
-          <div v-for="num in rowThree" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowThree" class="space" :number="num">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="row">
-          <div v-for="num in rowTwo" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowTwo" class="space" @click="placeChip(num)">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="row">
-          <div v-for="num in rowOne" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowOne" class="space" @click="placeChip(num)">
             {{ num }}
-          </div>
+          </Tile>
         </div>
         <div class="twelve-row">
           <div class="twelve-space">1st 12</div>
