@@ -84,35 +84,6 @@ function DecrementBet() {
 </script>
 
 <template>
-
-	<div class="wheels">
-		<div class="wheel" id="wheel1">
-			<img v-if="wheels[0] !== null" :src="wheels[0]" />
-		</div>
-		<div class="wheel" id="wheel2">
-			<img v-if="wheels[1] !== null" :src="wheels[1]" />
-		</div>
-		<div class="wheel" id="wheel3">
-			<img v-if="wheels[2] !== null" :src="wheels[2]" />
-		</div>
-	</div>
-	<div class="controls">
-		<span>
-			<button @click="IncrementBet()">+ $5</button>
-			<h2 v-text="bet"></h2>
-			<button @click="DecrementBet()">- $5</button>
-		</span>
-		<button @click="Spin()">Spin!</button>
-	</div>
-	<div class="rules">
-		<h2>Rules</h2>
-		<p>Match 3 in a row to win!</p>
-		<p>Cherry: 15x</p>
-		<p>Bells: 35x</p>
-		<p>Bars: 100x</p>
-		<p>Sevens: 1000x</p>
-	</div>
-
   <div class="roulette-wrapper">
     <div class="wheels">
       <div class="wheel" id="wheel1">
@@ -137,8 +108,15 @@ function DecrementBet() {
         </div>
       </div>
     </div>
+	<div class="rules">
+		<h2>Rules</h2>
+		<p>Match 3 in a row to win!</p>
+		<p>Cherry: 15x</p>
+		<p>Bells: 35x</p>
+		<p>Bars: 100x</p>
+		<p>Sevens: 1000x</p>
+	</div>
   </div>
-
 </template>
 
 <style scoped>
