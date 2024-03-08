@@ -103,6 +103,14 @@ function DecrementBet() {
 		</span>
 		<button @click="Spin()">Spin!</button>
 	</div>
+	<div class="rules">
+		<h2>Rules</h2>
+		<p>Match 3 in a row to win!</p>
+		<p>Cherry: 15x</p>
+		<p>Bells: 35x</p>
+		<p>Bars: 100x</p>
+		<p>Sevens: 1000x</p>
+	</div>
 </template>
 
 <style>
@@ -165,5 +173,17 @@ function DecrementBet() {
 
 .controls button:hover {
 	background-color: #f91e2cad;
+}
+
+.rules {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5%;
+    border: 2px solid black;
+    width: 300px;
 }
 </style>
