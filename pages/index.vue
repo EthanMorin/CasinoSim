@@ -1,27 +1,38 @@
 <template>
-  <div class="game-display">
-    <div class="game-panel">
-      <p>yeah buddy</p>
-    </div>
-    <div class="game-panel">
-      <p>yeah buddy</p>
-    </div>
-    <div class="game-panel">
-      <p>yeah buddy</p>
-    </div>
-  </div>
+	<div class="game-display">
+		<div class="game-panel">
+			<NuxtLink to="/slots">
+				<p>Slots</p>
+				<img src="/public/card-back.png" alt="image of slots" />
+			</NuxtLink>
+		</div>
+		<div class="game-panel">
+			<NuxtLink to="/blackjack">
+				<p>Black Jack</p>
+				<img src="/public/card-back.png" alt="image of blackjack" />
+			</NuxtLink>
+		</div>
+		<div class="game-panel">
+			<NuxtLink to="/roulette">
+				<p>Roulette</p>
+				<img src="/public/card-back.png" alt="image of roulette" />
+			</NuxtLink>
+		</div>
+	</div>
 </template>
 
 <style scoped>
 .game-display {
-  display: flex;
-  height: 100%;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%;
+	width: 100%;
 }
 .game-panel {
-  margin: 5px;
-  border: solid 2px white;
-  width: 28%;
-  height: 80%;
+	margin: 5px;
+	border: solid 2px white;
+	width: 28%;
+	height: 80%;
 }
 </style>
