@@ -50,10 +50,8 @@ function calculateWinnings(winningNumber) {
 </script>
 
 <template>
-  <div>
-    <h1>roulette</h1>
+  <div class="roulette-wrapper">
     <div class="board-wrapper">
-      <button @click="printBet()">click</button>
       <div class="zero-question-mark">
         <div class="zero-space">00</div>
         <div class="zero-space">0</div>
@@ -98,6 +96,12 @@ function calculateWinnings(winningNumber) {
 </template>
 
 <style scoped>
+.roulette-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .board-wrapper {
   display: flex;
   flex-direction: row;

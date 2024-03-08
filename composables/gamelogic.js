@@ -6,6 +6,7 @@ class BlackJackGame {
         this.players = [];
         this.gameState = "new";
         this.currentPlayerIndex = 0;
+        this.dealerShowHand = false;
     }
     /**
      * Starts the game, deals to all players and the dealer
@@ -88,6 +89,7 @@ class BlackJackGame {
         while(this.dealer.score < 17) {
             this.dealer.addCard(this.deck.drawCard());
         }
+        this.dealerShowHand = true;
         this.determineWinner();
     }
 
