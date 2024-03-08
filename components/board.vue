@@ -60,6 +60,7 @@ export default {
     },
     deal() {
       this.game.startGame();
+      this.game.addPlayer("Player 1");
       this.updateHands();
     },
     split() {
@@ -71,9 +72,9 @@ export default {
         this.currentPlayerIndex = this.game.currentPlayerIndex;
         this.currentPlayer = this.game.players[this.currentPlayerIndex];
       }
+      this.dealerShowHand = this.game.dealerShowHand;
       this.dealerCards = this.game.dealer.hand;
       this.playerCards = this.currentPlayer.hand;
-      this.dealerShowHand = this.game.dealerShowHand;
     },
 
   }
