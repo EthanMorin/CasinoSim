@@ -11,6 +11,7 @@ class Options {
 
 var bet = ref(5);
 var payout = ref();
+var winAmount = ref();
 
 const wheels = ref(['', '', '']);
 
@@ -50,14 +51,14 @@ function CheckWin(slots) {
     slots.Slot1.name === slots.Slot3.name
   ) {
     payout = bet.value * slots.Slot1.value;
-    console.log('3 in a row: you win $' + payout);
+		winAmount = "you win $" + payout
 
     //TODO ADD PAYOUT TO USER MONEY
     incrementBalance(payout);
-    console.log(playerBalance);
     //TRIGGER WIN PROMPT/TRY AGAIN
   } else {
-    console.log('L bozo');
+		payout = 0
+		winAmount = "no money gained"
     //TRIGGER LOSE PROMPT/TRY AGAIN
   }
 }
@@ -96,6 +97,7 @@ function DecrementBet() {
         <img v-if="wheels[2] !== null" :src="wheels[2]" />
       </div>
     </div>
+		<h3>{{ winAmount }}</h3>
     <h2>${{ bet }}</h2>
     <div class="controls-wrapper">
       <div class="controls">
