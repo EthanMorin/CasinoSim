@@ -28,7 +28,6 @@
 
 <script>
 
-import { BlackJackGame } from './gamelogic';
 export default {
   
   data() {
