@@ -104,6 +104,7 @@ function DecrementBet() {
 		<button @click="Spin()">Spin!</button>
 	</div>
 </template>
+
 <style>
 .wheels {
 	display: flex;
@@ -155,7 +156,7 @@ function DecrementBet() {
 .controls button {
 	padding: 10px 20px;
 	font-size: 16px;
-	background-color: #F91E2E;
+	background-color: #f91e2e;
 	color: #ffffff;
 	border: none;
 	border-radius: 5px;
