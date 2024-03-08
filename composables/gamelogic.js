@@ -27,6 +27,7 @@ class BlackJackGame {
         this.dealer.addCard(this.deck.drawCard());
         this.dealer.addCard(this.deck.drawCard());
         this.currentPlayerIndex = 0;
+        this.dealerShowHand = false;
     }
 
     /**
@@ -103,7 +104,6 @@ class BlackJackGame {
                 // dealer wins
             } 
         });
-        this.gameState = "over";
     }
 
 
