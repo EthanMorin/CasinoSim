@@ -65,12 +65,12 @@ function calculateWinnings(winningNumber) {
           </Tile>
         </div>
         <div class="row">
-          <Tile v-for="num in rowTwo" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowTwo" class="space" :number="num">
             {{ num }}
           </Tile>
         </div>
         <div class="row">
-          <Tile v-for="num in rowOne" class="space" @click="placeChip(num)">
+          <Tile v-for="num in rowOne" class="space" :number="num">
             {{ num }}
           </Tile>
         </div>
