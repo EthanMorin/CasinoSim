@@ -42,8 +42,57 @@ function Deposit(){
     <div class="loans">${{ loanBalance }}</div>
     <div class="balance"> ${{ currentBalance }}</div>
     <div class="controls">
-        <input v-model="inputMoney" id="moneyBox" type="number">
-        <button class="button" id="withdrawl" @click="Withdrawl()"()>Withdrawl</button>
-        <button class="button" id="deposit" @click="Deposit()">Deposit</button>
+        <input v-model="inputMoney" id="moneyBox" type="number" >
+
+        <div class="button-wrapper">
+            <button class="button" id="withdrawl" @click="Withdrawl()"()>Withdrawl</button>
+            <button class="button" id="deposit" @click="Deposit()">Deposit</button>
+        </div>
     </div>
 </template>
+
+
+<style scoped>
+.loans {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	border-radius: 10px;
+    font-size: 20vw;
+    color: #fd364c
+}
+
+.balance{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	border-radius: 10px;
+    font-size: 5vw;
+    
+}
+
+.controls {
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    input {
+        width: 25%;
+        height: 25%;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+    width: 100px;
+	border-radius: 10px;
+    font-size: 5vw;
+}
+
+</style>
