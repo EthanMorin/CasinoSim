@@ -2,10 +2,11 @@
   <div class="blackjack-game">
     <!-- Dealer's hand -->
     <div class="dealer-hand">
-      <div class="card" v-for="(card, index) in dealerCards" :key="index">
-        <img :src="'/card-' + card.suit + '-' + card.value + '.png'"/>
-      </div>
+    <div class="card" v-for="(card, index) in dealerCards" :key="`dealer-${index}`">
+      <img v-if="index === 0 && !showDealerCard" src="/card-back.png" />
+      <img v-else :src="'/card-' + card.suit + '-' + card.value + '.png'"/>
     </div>
+  </div>
 
     <!-- Player's hand -->
     <div class="player-hand">
@@ -36,7 +37,8 @@ export default {
       dealerCards: [],
       playerCards: [],
       currentPlayer: null,
-      currentPlayerIndex: 0
+      currentPlayerIndex: 0,
+      showDealerCard: false,
     };
   },
   created() {
@@ -52,6 +54,7 @@ export default {
     stand() {
       this.game.playerStand();
       this.updateHands();
+      this.showDealerCard = true;
     },
     double() {
       this.game.playerDoubleDown();
@@ -60,6 +63,7 @@ export default {
     deal() {
       this.game.startGame();
       this.updateHands();
+      this.showDealerCard = false;
     },
     split() {
       this.game.playerSplit();
