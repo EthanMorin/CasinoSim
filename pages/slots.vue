@@ -111,7 +111,6 @@ function DecrementBet() {
 	align-items: center;
 	gap: 20px;
 	padding: 20px;
-	background-color: #f0f0f0;
 	border-radius: 10px;
 }
 
@@ -141,7 +140,6 @@ function DecrementBet() {
 	align-items: center;
 	gap: 10px;
 	padding: 20px;
-	background-color: #f0f0f0;
 	border-radius: 10px;
 }
 
@@ -157,7 +155,7 @@ function DecrementBet() {
 .controls button {
 	padding: 10px 20px;
 	font-size: 16px;
-	background-color: #007bff;
+	background-color: #F91E2E;
 	color: #ffffff;
 	border: none;
 	border-radius: 5px;
@@ -165,6 +163,6 @@ function DecrementBet() {
 }
 
 .controls button:hover {
-	background-color: #0056b3;
+	background-color: #f91e2cad;
 }
 </style>
