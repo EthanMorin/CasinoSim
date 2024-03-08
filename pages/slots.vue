@@ -2,182 +2,180 @@
 const { playerBalance, incrementBalance, decrementBalance } = useAccount();
 
 class Options {
-	constructor(name, value, image) {
-		this.name = name;
-		this.value = value;
-		this.image = image;
-	}
+  constructor(name, value, image) {
+    this.name = name;
+    this.value = value;
+    this.image = image;
+  }
 }
 
 var bet = ref(5);
 var payout = ref();
 
-const wheels = ref(["", "", ""]);
+const wheels = ref(['', '', '']);
 
-const cherry = new Options("Cherry", 15, "/slots/slot-machine-cherry.png");
-const bells = new Options("Bells", 35, "/slots/slot-machine-bell.png");
-const bars = new Options("Bars", 100, "/slots/slot-machine-bars.png");
-const sevens = new Options("Sevens", 1000, "/slots/slot-machine-seven.png");
+const cherry = new Options('Cherry', 15, '/slots/slot-machine-cherry.png');
+const bells = new Options('Bells', 35, '/slots/slot-machine-bell.png');
+const bars = new Options('Bars', 100, '/slots/slot-machine-bars.png');
+const sevens = new Options('Sevens', 1000, '/slots/slot-machine-seven.png');
 
 const wheel = [
-	cherry,
-	cherry,
-	cherry,
-	cherry,
-	bells,
-	bells,
-	bells,
-	bars,
-	bars,
-	sevens,
+  cherry,
+  cherry,
+  cherry,
+  cherry,
+  bells,
+  bells,
+  bells,
+  bars,
+  bars,
+  sevens,
 ];
 
 function Spin() {
-	decrementBalance(bet.value);
-	var slots = RandomSlots();
+  decrementBalance(bet.value);
+  var slots = RandomSlots();
 
-	//SET IMAGE
-	wheels.value[0] = slots.Slot1.image;
-	wheels.value[1] = slots.Slot2.image;
-	wheels.value[2] = slots.Slot3.image;
+  //SET IMAGE
+  wheels.value[0] = slots.Slot1.image;
+  wheels.value[1] = slots.Slot2.image;
+  wheels.value[2] = slots.Slot3.image;
 
-	CheckWin(slots);
+  CheckWin(slots);
 }
 
 function CheckWin(slots) {
-	if (
-		slots.Slot1.name === slots.Slot2.name &&
-		slots.Slot1.name === slots.Slot3.name
-	) {
-		payout = bet.value * slots.Slot1.value;
-		console.log("3 in a row: you win $" + payout);
+  if (
+    slots.Slot1.name === slots.Slot2.name &&
+    slots.Slot1.name === slots.Slot3.name
+  ) {
+    payout = bet.value * slots.Slot1.value;
+    console.log('3 in a row: you win $' + payout);
 
-		//TODO ADD PAYOUT TO USER MONEY
-		incrementBalance(payout);
-		console.log(playerBalance);
-		//TRIGGER WIN PROMPT/TRY AGAIN
-	} else {
-		console.log("L bozo");
-		//TRIGGER LOSE PROMPT/TRY AGAIN
-	}
+    //TODO ADD PAYOUT TO USER MONEY
+    incrementBalance(payout);
+    console.log(playerBalance);
+    //TRIGGER WIN PROMPT/TRY AGAIN
+  } else {
+    console.log('L bozo');
+    //TRIGGER LOSE PROMPT/TRY AGAIN
+  }
 }
 
 function RandomSlots() {
-	//RANDOMIZE THE SLOTS ON THE WHEELS
-	return {
-		Slot1: wheel[Math.floor(Math.random() * wheel.length)],
-		Slot2: wheel[Math.floor(Math.random() * wheel.length)],
-		Slot3: wheel[Math.floor(Math.random() * wheel.length)],
-	};
+  //RANDOMIZE THE SLOTS ON THE WHEELS
+  return {
+    Slot1: wheel[Math.floor(Math.random() * wheel.length)],
+    Slot2: wheel[Math.floor(Math.random() * wheel.length)],
+    Slot3: wheel[Math.floor(Math.random() * wheel.length)],
+  };
 }
 
 function IncrementBet() {
-	bet.value += 5;
+  bet.value += 5;
 }
 
 function DecrementBet() {
-	//CANT BE OR GO UNDER 0
-	if (bet.value - 5 != 0) {
-		bet.value -= 5;
-	}
+  //CANT BE OR GO UNDER 0
+  if (bet.value - 5 != 0) {
+    bet.value -= 5;
+  }
 }
 </script>
 
 <template>
-	<div class="content">
-		<div class="wheels">
-			<div class="wheel" id="wheel1">
-				<img v-if="wheels[0] !== null" :src="wheels[0]" />
-			</div>
-			<div class="wheel" id="wheel2">
-				<img v-if="wheels[1] !== null" :src="wheels[1]" />
-			</div>
-			<div class="wheel" id="wheel3">
-				<img v-if="wheels[2] !== null" :src="wheels[2]" />
-			</div>
-		</div>
-		<div class="controls">
-			<span>
-				<div class="bet-btn">
-					<button @click="DecrementBet()">- $5</button>
-				</div>
-				<h2 v-text="bet"></h2>
-				<div class="bet-btn">
-					<button @click="IncrementBet()">+ $5</button>
-				</div>
-			</span>
-			<button @click="Spin()">Spin!</button>
-		</div>
-	</div>
+  <div class="content">
+    <div class="wheels">
+      <div class="wheel" id="wheel1">
+        <img v-if="wheels[0] !== null" :src="wheels[0]" />
+      </div>
+      <div class="wheel" id="wheel2">
+        <img v-if="wheels[1] !== null" :src="wheels[1]" />
+      </div>
+      <div class="wheel" id="wheel3">
+        <img v-if="wheels[2] !== null" :src="wheels[2]" />
+      </div>
+    </div>
+    <div class="controls-wrapper">
+      <div class="controls">
+        <div class="bet-btn">
+          <button @click="DecrementBet()">- $5</button>
+        </div>
+        <h2>${{ bet }}</h2>
+        <div class="bet-btn">
+          <button @click="IncrementBet()">+ $5</button>
+        </div>
+      </div>
+      <button @click="Spin()">Spin!</button>
+    </div>
+  </div>
 </template>
 
 <style>
 .content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .wheels {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	padding: 20px;
-	border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .wheel {
-	width: 100px;
-	height: 100px;
-	background-color: #ffffff;
-	border: 2px solid #000000;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 18px;
-	font-weight: bold;
-	color: #000000;
-	text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
 }
 
 .wheel > img {
-	height: 75%;
+  height: 75%;
+}
+.controls-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .controls {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	padding: 20px;
-	border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .controls p {
-	margin: 0;
+  margin: 0;
 }
 
-.controls span {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #fd364c;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
 }
 
-.controls button {
-	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #f91e2e;
-	color: #ffffff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.controls button:hover {
-	background-color: #f91e2cad;
+button:hover {
+  background-color: #f91e2cad;
 }
 </style>
