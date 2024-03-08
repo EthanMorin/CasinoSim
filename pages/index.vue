@@ -30,9 +30,12 @@
 	width: 100%;
 }
 .game-panel {
+	display: flex;
+	justify-content: center;
 	margin: 5px;
 	border: solid 2px white;
 	width: 28%;
 	height: 80%;
+	text-align: center;
 }
 </style>
