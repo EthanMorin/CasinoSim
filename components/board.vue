@@ -117,4 +117,4 @@ button {
 
 <style scoped>
 
-</style>
+</style>../composables/gamelogic
