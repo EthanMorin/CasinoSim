@@ -16,11 +16,16 @@ function placeChip(num) {
     amount: 5,
   };
   bet.chips.push(chip);
-  spinWheel();
 }
 
 function spinWheel() {
-  bet.chips.forEach((value) => console.log(value.number, value.amount));
+  bet.chips.forEach((chip) => console.log(chip.number, chip.amount));
+}
+
+function printBet() {
+  bet.chips.forEach((chip) => {
+    console.log(`number: ${chip.number}\namount: ${chip.amount}`);
+  });
 }
 </script>
 
@@ -28,6 +33,7 @@ function spinWheel() {
   <div>
     <h1>roulette</h1>
     <div class="board-wrapper">
+      <button @click="printBet()">click</button>
       <div class="zero-question-mark">
         <div class="zero-space">00</div>
         <div class="zero-space">0</div>
