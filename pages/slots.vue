@@ -84,7 +84,36 @@ function DecrementBet() {
 </script>
 
 <template>
-  <div class="content">
+
+	<div class="wheels">
+		<div class="wheel" id="wheel1">
+			<img v-if="wheels[0] !== null" :src="wheels[0]" />
+		</div>
+		<div class="wheel" id="wheel2">
+			<img v-if="wheels[1] !== null" :src="wheels[1]" />
+		</div>
+		<div class="wheel" id="wheel3">
+			<img v-if="wheels[2] !== null" :src="wheels[2]" />
+		</div>
+	</div>
+	<div class="controls">
+		<span>
+			<button @click="IncrementBet()">+ $5</button>
+			<h2 v-text="bet"></h2>
+			<button @click="DecrementBet()">- $5</button>
+		</span>
+		<button @click="Spin()">Spin!</button>
+	</div>
+	<div class="rules">
+		<h2>Rules</h2>
+		<p>Match 3 in a row to win!</p>
+		<p>Cherry: 15x</p>
+		<p>Bells: 35x</p>
+		<p>Bars: 100x</p>
+		<p>Sevens: 1000x</p>
+	</div>
+
+  <div class="roulette-wrapper">
     <div class="wheels">
       <div class="wheel" id="wheel1">
         <img v-if="wheels[0] !== null" :src="wheels[0]" />
@@ -96,23 +125,25 @@ function DecrementBet() {
         <img v-if="wheels[2] !== null" :src="wheels[2]" />
       </div>
     </div>
+    <h2>${{ bet }}</h2>
     <div class="controls-wrapper">
       <div class="controls">
         <div class="bet-btn">
           <button @click="DecrementBet()">- $5</button>
         </div>
-        <h2>${{ bet }}</h2>
+        <button @click="Spin()">Spin!</button>
         <div class="bet-btn">
           <button @click="IncrementBet()">+ $5</button>
         </div>
       </div>
-      <button @click="Spin()">Spin!</button>
     </div>
   </div>
+
 </template>
 
-<style>
-.content {
+<style scoped>
+.roulette-wrapper {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,8 +161,8 @@ function DecrementBet() {
 .wheel {
   width: 100px;
   height: 100px;
-  background-color: #ffffff;
-  border: 2px solid #000000;
+  background-color: #18202d;
+  border: 2px solid #263348;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -146,7 +177,7 @@ function DecrementBet() {
   height: 75%;
 }
 .controls-wrapper {
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,7 +187,7 @@ function DecrementBet() {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -164,18 +195,15 @@ function DecrementBet() {
   margin: 0;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #fd364c;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-}
-
-button:hover {
-  background-color: #f91e2cad;
+.rules {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5%;
+    border: 2px solid black;
+    width: 300px;
 }
 </style>
