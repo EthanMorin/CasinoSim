@@ -59,8 +59,9 @@ export default {
       this.updateHands();
     },
     deal() {
-      this.game.startGame();
+      this.game.players = [];
       this.game.addPlayer("Player 1");
+      this.game.startGame();
       this.updateHands();
     },
     split() {
